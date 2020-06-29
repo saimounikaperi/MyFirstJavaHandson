@@ -12,6 +12,7 @@ import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
 import employeeCRUD.EmployeeDetails;
+import employeeCRUD.Operations;
 import junit.framework.Assert;
 
 class JUnitTestCaseForInsertOperation {
@@ -19,6 +20,7 @@ class JUnitTestCaseForInsertOperation {
 	@Test
 	void test() 
 	{
+		Operations o = new Operations();
 		Scanner sc = new Scanner(System.in);
 		Connection connection;
 		PreparedStatement pstmt;
@@ -26,7 +28,7 @@ class JUnitTestCaseForInsertOperation {
 		String insertSQL = "Insert into Employee(EmployeeName, EmployeeAddress, DateOfJoining, Experience, DateOfBirth) values(?,?,?,?,?)";
 		try
 		{
-			int rows = EmployeeDetails.insertSQL();
+			int rows = o.insertSQL();
 			Assert.assertEquals(1, rows);	
 		}
 		catch(Exception e)
